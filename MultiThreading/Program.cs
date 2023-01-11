@@ -1,5 +1,5 @@
 ﻿// See https://aka.ms/new-console-template for more information
-//Console.WriteLine("Hello, World!");
+// Application uses a single thread
 Thread t = Thread.CurrentThread;
 t.Name = "Main Thread";
 Console.WriteLine("Thread Name: {0}", t.Name);

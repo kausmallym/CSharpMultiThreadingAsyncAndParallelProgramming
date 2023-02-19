@@ -14,9 +14,9 @@ Thread t1 = new Thread(Method1)
 };
 
 Thread t2 = new Thread(Method2)
-            {
-                Name = "Thread 2"
-            };
+{
+    Name = "Thread 2"
+};
 
 Thread t3 = new Thread(Method3)
 {
@@ -42,10 +42,10 @@ Console.WriteLine("Main thread ended");
 static void Method1()
 {
     Console.WriteLine("Method 1 started using thread: {0}", Thread.CurrentThread.Name);
-	for (int i = 0; i < 5; i++)
-	{
-		Console.WriteLine("Method 1: {0}", i);
-	}
+    for (int i = 0; i < 5; i++)
+    {
+        Console.WriteLine("Method 1: {0}", i);
+    }
     Console.WriteLine("Method 1 completed using thread: {0}", Thread.CurrentThread.Name);
 }
 

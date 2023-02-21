@@ -5,7 +5,7 @@
 //Console.WriteLine("Thread Name: {0}", t.Name);
 //Console.WriteLine("Current thread Name: {0}", Thread.CurrentThread.Name);
 
-Console.WriteLine("Main thread started");
+//Console.WriteLine("Main thread started");
 
 //Creating Threads
 Thread t1 = new Thread(Method1)
@@ -28,7 +28,7 @@ t1.Start();
 t2.Start();
 t3.Start();
 
-Console.WriteLine("Main thread ended");
+//Console.WriteLine("Main thread ended");
 
 //Method1();
 //Console.WriteLine("Method 1 execution is completed");

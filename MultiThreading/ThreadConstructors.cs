@@ -20,7 +20,18 @@ namespace MultiThreading
 
             //Thread t1 = new Thread(ShowNumbers)
 
-            ThreadStart obj = delegate () { ShowNumbers(); };
+            //ThreadStart obj = delegate () { ShowNumbers(); };
+            
+            //We can pass the code directly - not really a correct way but we do not have method names in anonymous method
+            ThreadStart obj = delegate () {
+                {
+                    Console.WriteLine($"Current running thread: {Thread.CurrentThread.Name}");
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+            };
             //Thread t1 = new Thread(ShowNumbers) //CLR is responsible for initialising the ThreadStart delegate
             Thread t1 = new Thread(obj)
             {

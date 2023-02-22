@@ -19,7 +19,10 @@ namespace MultiThreading
             //ThreadStart obj = ShowNumbers;
 
             //Thread t1 = new Thread(ShowNumbers)
-            Thread t1 = new Thread(ShowNumbers) //CLR is responsible for initialising the ThreadStart delegate
+
+            ThreadStart obj = delegate () { ShowNumbers(); };
+            //Thread t1 = new Thread(ShowNumbers) //CLR is responsible for initialising the ThreadStart delegate
+            Thread t1 = new Thread(obj)
             {
                 Name = "Thread 1"
             };

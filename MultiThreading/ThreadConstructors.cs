@@ -15,7 +15,10 @@ namespace MultiThreading
 
         private static void UsingThreadStartDelegateConstructor()
         {
-            Thread t1 = new Thread(ShowNumbers)
+            ThreadStart obj = new ThreadStart(ShowNumbers);
+
+            //Thread t1 = new Thread(ShowNumbers)
+            Thread t1 = new Thread(obj)
             {
                 Name = "Thread 1"
             };

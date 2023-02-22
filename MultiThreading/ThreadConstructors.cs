@@ -51,6 +51,10 @@ namespace MultiThreading
                 Name = "Thread 2" 
             };
             t2.Start(10);
+            //t2.Start();
+            //t2.Start("i am a string");
+            //issue is if we do not add a parameter when starting the thread, or a value that is not int(a string),
+            //no error will be displayed, but a run time error may be generated
 
         }
 

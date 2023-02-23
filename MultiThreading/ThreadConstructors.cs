@@ -1,13 +1,16 @@
 ﻿namespace MultiThreading
 {
+    public delegate void SumOfNumberDelegate(int SumOfNum);
     internal class ThreadConstructors
     {
         public static void RunMethods()
         {
             //UsingThreadStartDelegateConstructor();
             //UsingParameterizedThreadStartDelegate();
-            UsingParameterizedThreadStartDelegateTypeSafe();
+            //UsingParameterizedThreadStartDelegateTypeSafe();
+            RetrievingDataFromThreadFunction();
         }
+
 
         private static void UsingThreadStartDelegateConstructor()
         {
@@ -72,6 +75,14 @@
 
             t3.Start();
         }
+        private static void RetrievingDataFromThreadFunction()
+        {
+            int max = 3;
+            NumberHelper nh1 = new NumberHelper(max, DisplaySumOfNo);
+            ThreadStart obj = new ThreadStart(nh1.CalculateSumofNumbers);
+            Thread t4 = new Thread(obj);
+            t4.Start();
+        }
 
         private static void ShowNumbers()
         {
@@ -90,15 +101,29 @@
                 Console.WriteLine(i);
             }
         }
+
+        //Signature of this callback method is same as the delegate
+        public static void DisplaySumOfNo(int Sum)
+        {
+            Console.WriteLine($"Sum: {Sum}");
+        }
     }
 
     //Creating a helper class
     public class NumberHelper
     {
         private int _Number;
+        SumOfNumberDelegate OnSumOfNumberDelegate;
+
         public NumberHelper(int num)
         {
             _Number = num;
+        }
+
+        public NumberHelper(int num, SumOfNumberDelegate sumDelegate)
+        {
+            _Number = num;
+            OnSumOfNumberDelegate = sumDelegate;
         }
 
         public void ShowNumbersTypeSafe()
@@ -108,6 +133,16 @@
             {
                 Console.WriteLine(i);
             }
+        }
+
+        public void CalculateSumofNumbers()
+        {
+            int sum = 0;
+            for (int i = 0; i <= _Number; i++)
+            {
+                sum += i;
+            }
+            OnSumOfNumberDelegate?.Invoke(sum);
         }
     }
 }

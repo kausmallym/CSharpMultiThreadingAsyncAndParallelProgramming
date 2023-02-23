@@ -1,6 +1,4 @@
-﻿using System.Reflection.Metadata;
-
-namespace MultiThreading
+﻿namespace MultiThreading
 {
     internal class ThreadConstructors
     {

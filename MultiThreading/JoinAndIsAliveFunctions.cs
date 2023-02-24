@@ -12,16 +12,26 @@ namespace MultiThreading
         {
             Console.WriteLine("Main method execution started");
 
+
             Thread t1 = new Thread(Method1);
             t1.Start();
             Thread t2 = new Thread(Method2);
             t2.Start();
 
             //force main thread to wait for child thread t1 and t2 to complete
-            t1.Join();
-            Console.WriteLine("Method 1 execution completed");
+            //t1.Join();
+            //Console.WriteLine("Method 1 execution completed");
+
+            //Main thread only waits for 2 seconds, if only the condition is true then it will be printed
+            if (t1.Join(2000))
+            {
+                t1.Join();
+                Console.WriteLine("Method 1 execution completed");
+            }
+
             t2.Join();
             Console.WriteLine("Method 2 execution completed");
+
 
             Console.WriteLine("Main method execution ended");
         }

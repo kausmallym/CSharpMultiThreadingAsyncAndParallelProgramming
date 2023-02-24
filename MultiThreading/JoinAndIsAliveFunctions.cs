@@ -32,6 +32,15 @@ namespace MultiThreading
             t2.Join();
             Console.WriteLine("Method 2 execution completed");
 
+            if (t1.IsAlive)
+            {
+                Console.WriteLine("Method 1 execution is still going on");
+            }
+            else
+            {
+                Console.WriteLine("Method 1  execution has completed");
+            }
+
 
             Console.WriteLine("Main method execution ended");
         }
@@ -42,7 +51,7 @@ namespace MultiThreading
             Thread.Sleep(5000);
             Console.WriteLine("Method 1 is awake after sleep");
         }
-        
+
         public static void Method2()
         {
             Console.WriteLine("Method2 execution started");

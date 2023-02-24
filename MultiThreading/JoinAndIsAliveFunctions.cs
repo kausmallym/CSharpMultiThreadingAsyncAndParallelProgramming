@@ -17,6 +17,12 @@ namespace MultiThreading
             Thread t2 = new Thread(Method2);
             t2.Start();
 
+            //force main thread to wait for child thread t1 and t2 to complete
+            t1.Join();
+            Console.WriteLine("Method 1 execution completed");
+            t2.Join();
+            Console.WriteLine("Method 2 execution completed");
+
             Console.WriteLine("Main method execution ended");
         }
 

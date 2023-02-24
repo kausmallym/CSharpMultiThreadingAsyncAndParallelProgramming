@@ -78,4 +78,5 @@
 
 using MultiThreading;
 
+//ThreadConstructors.RunMethods();
 JoinAndIsAliveFunctions.RunMethods();

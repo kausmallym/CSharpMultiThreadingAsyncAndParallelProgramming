@@ -29,6 +29,8 @@ namespace MultiThreading
         public static void Method1()
         {
             Console.WriteLine("Method1 execution started");
+            Thread.Sleep(5000);
+            Console.WriteLine("Method 1 is awake after sleep");
         }
         
         public static void Method2()

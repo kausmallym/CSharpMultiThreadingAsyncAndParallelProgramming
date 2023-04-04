@@ -19,7 +19,6 @@
             //Main thread only waits for 2 seconds, if only the condition is true then it will be printed
             if (t1.Join(2000))
             {
-                t1.Join();
                 Console.WriteLine("Method 1 execution completed");
             }
 
